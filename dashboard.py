@@ -101,7 +101,7 @@ if st.session_state.page_view == "Employment Statistics":
 
     if "Unemployment Rate" in selection:
         fig.add_trace(go.Scatter(x = df_plot['Date'], y = df_plot['Unemployment Rate'],
-                                name = 'Unemployment Rate', line = dict(color = 'orange'), yaxis = "y2",
+                                name = 'Unemployment Rate', line = dict(color = 'red'), yaxis = "y2",
                                 hovertemplate='%{y:.1f}%' ))
 
     fig.update_layout(
@@ -145,7 +145,7 @@ elif st.session_state.page_view == "Wage Growth vs Inflation":
 
     if "Inflation" in selection:
         fig.add_trace(go.Scatter(x = df_plot['Date'], y = df_plot['Inflation'],
-                            name = 'Inflation', line = dict(color = 'red'),
+                            name = 'Inflation', line = dict(color = 'orange'),
                                 hovertemplate='%{y:.1f}%'))
 
     fig.update_layout(
@@ -186,12 +186,12 @@ elif st.session_state.page_view == "Work Hours & Pay":
                          default=['Hourly Earnings',"Adj. Hourly Earnings", 'Hours Worked'], selection_mode="multi")
     if 'Hourly Earnings' in selection:
         fig.add_trace(go.Scatter(x = df_plot['Date'], y = df_plot['Hourly Earnings'],
-                            name = 'Hourly Earnings', line = dict(color = "purple"), yaxis = "y",
+                            name = 'Hourly Earnings', line = dict(color = "hotpink"), yaxis = "y",
                                 hovertemplate='%{y:$,.1f}'))
     
     if 'Adj. Hourly Earnings' in selection:
         fig.add_trace(go.Scatter(x = df_plot['Date'], y = df_plot['Adj Hourly Earnings'],
-                            name = 'Adj. Hourly Earnings', line = dict(color = "pink"), yaxis = "y",
+                            name = 'Adj. Hourly Earnings', line = dict(color = "purple"), yaxis = "y",
                                 hovertemplate='%{y:$,.1f}'))
 
     if 'Hours Worked' in selection:
