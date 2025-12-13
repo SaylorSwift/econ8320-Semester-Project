@@ -88,7 +88,7 @@ if st.session_state.page_view == "Employment Statistics":
     k1.metric("Employment", f"{round(end_row['Employment Level'] / 1000, 1):,}M", f"{emp_growth:,}k", delta_color = 'normal')
     k2.metric("Unemployment", f"{end_row['Unemployment Rate']}%", f"{round(unemp_change * 100)} pts", delta_color = 'inverse')
 
-    selection = st.pills("", ["Employment Level", "Unemployment Rate"], 
+    selection = st.pills("Select metrics", ["Employment Level", "Unemployment Rate"], 
                          default=["Employment Level", "Unemployment Rate"], selection_mode="multi")
     
 
@@ -133,7 +133,7 @@ elif st.session_state.page_view == "Wage Growth vs Inflation":
     k1.metric("Est. Weekly Income", f"${round(end_row['Weekly Income'],1):,}", f"{wage_growth:,}%", delta_color = 'normal')
     k2.metric("CPI", f"{end_row['CPI']}", f"{cpi_change}%", delta_color = 'inverse')
 
-    selection = st.pills("", ["Wage Growth", "Inflation"], 
+    selection = st.pills("Select metrics", ["Wage Growth", "Inflation"], 
                          default=["Wage Growth", "Inflation"], selection_mode="multi")
 
     if "Wage Growth" in selection:
@@ -180,7 +180,7 @@ elif st.session_state.page_view == "Work Hours & Pay":
     k1.metric("Hourly Earnings", f"${round(end_row['Hourly Earnings'],1):,}", f"{hr_growth:,}%", delta_color = 'normal')
     k2.metric("Adj. Hourly Earnings", f"${round(adjhr,1):,}", f"{adjhr_growth}%", delta_color = 'normal')
 
-    selection = st.pills("", ['Hourly Earnings', "Adj. Hourly Earnings", 'Hours Worked'], 
+    selection = st.pills("Select metrics", ['Hourly Earnings', "Adj. Hourly Earnings", 'Hours Worked'], 
                          default=['Hourly Earnings',"Adj. Hourly Earnings", 'Hours Worked'], selection_mode="multi")
     if 'Hourly Earnings' in selection:
         fig.add_trace(go.Scatter(x = df_plot['Date'], y = df_plot['Hourly Earnings'],
@@ -227,3 +227,4 @@ elif st.session_state.page_view == "Work Hours & Pay":
             })
 
         )
+
