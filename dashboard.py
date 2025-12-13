@@ -39,7 +39,6 @@ min_date = df["Date"].min().date()
 max_date = df["Date"].max().date()
 
 start_date, end_date = st.sidebar.slider(
-    "Select date range",
     min_value = min_date,
     max_value = max_date,
     value = (min_date, max_date), #default
@@ -227,4 +226,5 @@ elif st.session_state.page_view == "Work Hours & Pay":
             })
 
         )
+
 
