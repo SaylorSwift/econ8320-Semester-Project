@@ -27,7 +27,7 @@ def set_page(page_name):
     st.session_state.page_view = page_name
 
 #add buttons
-st.sidebar.markdown("Select page")
+st.sidebar.markdown(:small[Select page])
 st.sidebar.button("💼 Employment Statistics", on_click = set_page, args = ("Employment Statistics",))
 st.sidebar.button("📈 Income vs Inflation", on_click = set_page, args = ("Wage Growth vs Inflation",))
 st.sidebar.button("💵 Work Hours & Pay", on_click = set_page, args = ("Work Hours & Pay",))
@@ -228,6 +228,7 @@ elif st.session_state.page_view == "Work Hours & Pay":
             })
 
         )
+
 
 
 
