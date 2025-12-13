@@ -16,7 +16,7 @@ jobs:
           python-version: '3.9'
 
       - name: Install dependencies
-        run: pip install pandas requests json
+        run: pip install pandas requests
 
       - name: Run collect_data.py
         run: python collect_data.py
