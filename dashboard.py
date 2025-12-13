@@ -72,7 +72,7 @@ df_plot['Adj Hourly Earnings'] = round(df_plot["Hourly Earnings"] / df_plot["CPI
 
 #calculated indicators
 emp_growth = end_row['Employment Level'] - start_row['Employment Level']
-unemp_change = round(end_row['Unemployment Rate'] - start_row['Unemployment Rate'], 1)
+unemp_change = round(end_row['Unemployment Rate'] - start_row['Unemployment Rate'], 2)
 wage_growth = round((end_row['Weekly Income'] - start_row['Weekly Income']) / start_row['Weekly Income'] * 100, 1)
 cpi_change = round((end_row['CPI'] - start_row['CPI']) / start_row['CPI'] * 100, 1)
 hr_growth = round((end_row["Hourly Earnings"] - start_row["Hourly Earnings"]) / start_row["Hourly Earnings"] * 100 , 1)
@@ -228,6 +228,7 @@ elif st.session_state.page_view == "Work Hours & Pay":
             })
 
         )
+
 
 
 
