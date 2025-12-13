@@ -2,7 +2,7 @@ name: Weekly Data Refresh
 
 on:
   schedule:
-    - cron: '0 20 * * 6'
+    - cron: '0 16 * * 1'
   workflow_dispatch:
 
 permissions:
