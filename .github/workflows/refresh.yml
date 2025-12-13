@@ -3,7 +3,6 @@ name: Weekly Data Refresh
 on:
   schedule:
     - cron: '0 20 * * 6'
-  
   workflow_dispatch:
 
 permissions:
@@ -28,16 +27,26 @@ jobs:
       - name: Run collection script
         run: python collect_data.py
 
-      - name: Commit and Push if changed
+      - name: Update README timestamp
+        run: |
+          # 1. Set Timezone to Central Time
+          export TZ="America/Chicago"
+          
+          # 2. Get current date (e.g., "2025-12-13 01:30 PM CST")
+          NOW=$(date +'%Y-%m-%d %I:%M %p CST')
+          
+          # 3. Use 'sed' to find the line starting with "Last checked:" and replace it
+          sed -i "s/Last checked:.*/Last checked: $NOW/" README.md
+
+      - name: Commit and Push
         run: |
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "actions@github.com"
           
-          # Stage the specific file
-          git add data.csv
+          # Add BOTH files now
+          git add data.csv README.md
           
-          # Commit only if there are changes
-          # The "|| exit 0" ensures the workflow stays green if there's no new data
-          git commit -m "Weekly data refresh: $(date +'%Y-%m-%d')" || exit 0
+          # Commit the changes
+          git commit -m "Weekly refresh: $(date +'%Y-%m-%d')" || exit 0
           
           git push
