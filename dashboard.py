@@ -86,7 +86,7 @@ if st.session_state.page_view == "Employment Statistics":
 
     k1, k2 = st.columns(2)
     k1.metric("Employment", f"{round(end_row['Employment Level'] / 1000, 1):,}M", f"{emp_growth:,}k", delta_color = 'normal')
-    k2.metric("Unemployment", f"{end_row['Unemployment Rate']} pts", f"{unemp_change} pts", delta_color = 'inverse')
+    k2.metric("Unemployment", f"{end_row['Unemployment Rate']}%", f"{unemp_change} pts", delta_color = 'inverse')
 
     selection = st.pills("", ["Employment Level", "Unemployment Rate"], 
                          default=["Employment Level", "Unemployment Rate"], selection_mode="multi")
