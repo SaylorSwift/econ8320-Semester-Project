@@ -6,7 +6,7 @@ import time
 
 #title
 st.set_page_config(layout="wide")
-st.title("U.S. Labor Statistics Dashboard")
+st.title(":us: U.S. Labor Statistics Dashboard")
 
 if 'page_view' not in st.session_state:
     st.session_state.page_view = "Employment Statistics"
@@ -33,7 +33,7 @@ st.sidebar.button("💵 Work Hours & Pay", on_click = set_page, args = ("Work Ho
 
 #time slider
 st.sidebar.markdown("---")
-st.sidebar.header("📅 Date Range")
+st.sidebar.header("🗓 Date Range")
 
 min_date = df["Date"].min().date()
 max_date = df["Date"].max().date()
@@ -86,7 +86,7 @@ if st.session_state.page_view == "Employment Statistics":
 
     k1, k2 = st.columns(2)
     k1.metric("Employment", f"{round(end_row['Employment Level'] / 1000, 1):,}M", f"{emp_growth:,}k", delta_color = 'normal')
-    k2.metric("Unemployment", f"{end_row['Unemployment Rate']}%", f"{unemp_change} pts", delta_color = 'inverse')
+    k2.metric("Unemployment", f"{end_row['Unemployment Rate']}%", f"{round(unemp_change * 100)} pts", delta_color = 'inverse')
 
     selection = st.pills("", ["Employment Level", "Unemployment Rate"], 
                          default=["Employment Level", "Unemployment Rate"], selection_mode="multi")
@@ -225,4 +225,5 @@ elif st.session_state.page_view == "Work Hours & Pay":
                 'Adj Hourly Earnings': "${:.1f}",
                 'Hours Worked': "{:.1f}"
             })
+
         )
