@@ -19,9 +19,6 @@ def load_data():
 
 df = load_data()
 
-file_timestamp = os.path.getmtime('data.csv')
-refreshed_date = time.strftime('%B %d, %Y', time.localtime(file_timestamp))
-
 #sidebar
 st.sidebar.header("🧭 Navigation")
 
@@ -51,7 +48,7 @@ start_date, end_date = st.sidebar.slider(
 start_date = start_date.replace(day=1)
 
 file_timestamp = os.path.getmtime('data.csv')
-refreshed_date = time.strftime('%B %d, %Y', time.localtime(file_timestamp))
+refreshed_date = time.strftime('%B %d, %Y at %I:%M:%S %p', time.localtime(file_timestamp))
 
 st.sidebar.markdown("---")
 st.sidebar.caption(f"Dashboard last updated on {refreshed_date}")
