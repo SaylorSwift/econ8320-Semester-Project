@@ -125,7 +125,7 @@ if st.session_state.page_view == "Employment Statistics":
     st.plotly_chart(fig, use_container_width=True)
 
     with st.expander("View Raw Data"):
-        st.dataframe(df_plot[['Date', 'Employment Level', 'Unemployment Rate']].style.format({"Employment Level": "{:,.0f}k", "Unemployment Rate": "{:.1f}%"}))
+        st.dataframe(df_plot[['Date', 'Employment Level', 'Unemployment Rate']].style.format({'Date' : "{:%b %Y}", "Employment Level": "{:,.0f}k", "Unemployment Rate": "{:.1f}%"}))
 
 
 elif st.session_state.page_view == "Wage Growth vs Inflation":
@@ -164,7 +164,8 @@ elif st.session_state.page_view == "Wage Growth vs Inflation":
 
     with st.expander("View Raw Data"):
         st.dataframe(
-            df_plot[['Weekly Income', 'Wage Growth', 'CPI', 'Inflation']].style.format({
+            df_plot[['Date', 'Weekly Income', 'Wage Growth', 'CPI', 'Inflation']].style.format({
+                'Date' : "{:%b %Y}",
                 'Weekly Income': "${:,.1f}", 
                 'Wage Growth': "{:.1f}%",
                 'CPI': "{:.1f}", 
@@ -220,7 +221,8 @@ elif st.session_state.page_view == "Work Hours & Pay":
 
     with st.expander("View Raw Data"):
         st.dataframe(
-            df_plot[['Hourly Earnings', 'Adj Hourly Earnings', 'Hours Worked']].style.format({
+            df_plot[['Date', 'Hourly Earnings', 'Adj Hourly Earnings', 'Hours Worked']].style.format({
+                'Date' : "{:%b %Y}",
                 'Hourly Earnings': "${:.1f}", 
                 'Adj Hourly Earnings': "${:.1f}",
                 'Hours Worked': "{:.1f}"
