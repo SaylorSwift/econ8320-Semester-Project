@@ -27,18 +27,20 @@ def set_page(page_name):
     st.session_state.page_view = page_name
 
 #add buttons
+st.sidebar.header ("#### Select page")
 st.sidebar.button("💼 Employment Statistics", on_click = set_page, args = ("Employment Statistics",))
 st.sidebar.button("📈 Income vs Inflation", on_click = set_page, args = ("Wage Growth vs Inflation",))
 st.sidebar.button("💵 Work Hours & Pay", on_click = set_page, args = ("Work Hours & Pay",))
 
 #time slider
 st.sidebar.markdown("---")
-st.sidebar.header("🗓 Date Range")
+st.sidebar.header("🗓 Timeframe")
 
 min_date = df["Date"].min().date()
 max_date = df["Date"].max().date()
 
 start_date, end_date = st.sidebar.slider(
+    "Select date range",
     min_value = min_date,
     max_value = max_date,
     value = (min_date, max_date), #default
@@ -226,5 +228,6 @@ elif st.session_state.page_view == "Work Hours & Pay":
             })
 
         )
+
 
 
