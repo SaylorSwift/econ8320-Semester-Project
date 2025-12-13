@@ -48,7 +48,8 @@ start_date, end_date = st.sidebar.slider(
 start_date = start_date.replace(day=1)
 
 file_timestamp = os.path.getmtime('data.csv')
-refreshed_date = time.strftime('%B %d, %Y at %I:%M:%S %p', time.localtime(file_timestamp))
+dt_object = pd.to_datetime(file_timestamp, unit='s', utc=True).tz_convert('US/Central')
+refreshed_date = dt_object.strftime('%B %d, %Y at %I:%M:%S %p')
 
 st.sidebar.markdown("---")
 st.sidebar.caption(f"Dashboard last updated on {refreshed_date}")
