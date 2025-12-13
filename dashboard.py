@@ -31,7 +31,7 @@ def set_page(page_name):
 
 #add buttons
 st.sidebar.button("💼 Employment Statistics", on_click = set_page, args = ("Employment Statistics",))
-st.sidebar.button("📈 Wage Growth vs Inflation", on_click = set_page, args = ("Wage Growth vs Inflation",))
+st.sidebar.button("📈 Income vs Inflation", on_click = set_page, args = ("Wage Growth vs Inflation",))
 st.sidebar.button("💵 Work Hours & Pay", on_click = set_page, args = ("Work Hours & Pay",))
 
 #time slider
@@ -129,10 +129,10 @@ if st.session_state.page_view == "Employment Statistics":
 
 
 elif st.session_state.page_view == "Wage Growth vs Inflation":
-    st.markdown(f"## 📈 Wage Growth vs Inflation ({start_date.strftime('%b %Y')} — {end_date.strftime('%b %Y')})")
+    st.markdown(f"## 📈 Income vs Inflation ({start_date.strftime('%b %Y')} — {end_date.strftime('%b %Y')})")
 
     k1, k2 = st.columns(2)
-    k1.metric("Est. Weekly Wage", f"${round(end_row['Weekly Income'],1):,}", f"{wage_growth:,}%", delta_color = 'normal')
+    k1.metric("Est. Weekly Income", f"${round(end_row['Weekly Income'],1):,}", f"{wage_growth:,}%", delta_color = 'normal')
     k2.metric("CPI", f"{end_row['CPI']}", f"{cpi_change}%", delta_color = 'inverse')
 
     selection = st.pills("", ["Wage Growth", "Inflation"], 
