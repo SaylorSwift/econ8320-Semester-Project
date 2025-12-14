@@ -36,14 +36,12 @@ st.sidebar.button("💵 Work Hours & Pay", on_click = set_page, args = ("Work Ho
 st.sidebar.markdown("---")
 st.sidebar.header("📅 Timeframe")
 
+min_date = df["Date"].min().date()
+max_date = df["Date"].max().date()
+
 #add button to reset date slider
 def reset_slider():
     st.session_state['date_range'] = (min_date, max_date)
-    
-st.sidebar.button("Reset", on_click=reset_slider)
-
-min_date = df["Date"].min().date()
-max_date = df["Date"].max().date()
 
 start_date, end_date = st.sidebar.slider(
     "Select date range",
@@ -54,7 +52,10 @@ start_date, end_date = st.sidebar.slider(
     key="date_range"
 )
 start_date = start_date.replace(day=1)
+ 
+st.sidebar.button("Reset", on_click=reset_slider)
 
+#add dashboard refresh date time
 file_timestamp = os.path.getmtime('data.csv')
 dt_object = pd.to_datetime(file_timestamp, unit='s', utc=True).tz_convert('US/Central')
 refreshed_date = dt_object.strftime('%B %d, %Y at %I:%M:%S %p')
@@ -235,6 +236,7 @@ elif st.session_state.page_view == "Work Hours & Pay":
             })
 
         )
+
 
 
 
