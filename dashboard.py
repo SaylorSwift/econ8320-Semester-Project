@@ -32,15 +32,15 @@ st.sidebar.button("💼 Employment Statistics", on_click = set_page, args = ("Em
 st.sidebar.button("📈 Income vs Inflation", on_click = set_page, args = ("Wage Growth vs Inflation",))
 st.sidebar.button("💵 Work Hours & Pay", on_click = set_page, args = ("Work Hours & Pay",))
 
+#time slider
+st.sidebar.markdown("---")
+st.sidebar.header("📅 Timeframe")
+
 #add button to reset date slider
 def reset_slider():
     st.session_state['date_range'] = (min_date, max_date)
     
 st.sidebar.button("Reset", on_click=reset_slider)
-
-#time slider
-st.sidebar.markdown("---")
-st.sidebar.header("📅 Timeframe")
 
 min_date = df["Date"].min().date()
 max_date = df["Date"].max().date()
@@ -235,6 +235,7 @@ elif st.session_state.page_view == "Work Hours & Pay":
             })
 
         )
+
 
 
 
