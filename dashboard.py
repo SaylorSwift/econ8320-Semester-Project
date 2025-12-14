@@ -32,6 +32,12 @@ st.sidebar.button("💼 Employment Statistics", on_click = set_page, args = ("Em
 st.sidebar.button("📈 Income vs Inflation", on_click = set_page, args = ("Wage Growth vs Inflation",))
 st.sidebar.button("💵 Work Hours & Pay", on_click = set_page, args = ("Work Hours & Pay",))
 
+#add button to reset date slider
+def reset_slider():
+    st.session_state['date_range'] = (min_date, max_date)
+    
+st.sidebar.button("Reset", on_click=reset_slider)
+
 #time slider
 st.sidebar.markdown("---")
 st.sidebar.header("📅 Timeframe")
@@ -44,7 +50,8 @@ start_date, end_date = st.sidebar.slider(
     min_value = min_date,
     max_value = max_date,
     value = (min_date, max_date), #default
-    format="MMM YYYY" 
+    format="MMM YYYY",
+    key="date_range"
 )
 start_date = start_date.replace(day=1)
 
@@ -228,6 +235,7 @@ elif st.session_state.page_view == "Work Hours & Pay":
             })
 
         )
+
 
 
 
