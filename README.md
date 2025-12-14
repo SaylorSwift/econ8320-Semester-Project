@@ -8,7 +8,7 @@ A full-stack automated dashboard tracking U.S. employment levels, wage growth, a
 **[Click here to view the interactive dashboard](https://econ8320-semester-project-ahgzis6ufrb6bf2jebk4mp.streamlit.app/)**
 
 ## 🔄 Automation Status
-* **Schedule:** Checks for new BLS data every **Monday at 10:00 AM CST**.
+* **Schedule:** Checks for new BLS data on the **10th of every month at 10:00 AM CST**.
 
 Last checked: 2025-12-13 02:26 PM CST
 
