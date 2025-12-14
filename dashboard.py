@@ -61,7 +61,11 @@ dt_object = pd.to_datetime(file_timestamp, unit='s', utc=True).tz_convert('US/Ce
 refreshed_date = dt_object.strftime('%B %d, %Y at %I:%M:%S %p')
 
 st.sidebar.markdown("---")
-st.sidebar.caption(f"Dashboard last updated on {refreshed_date}")
+
+st.sidebar.markdown("**Credits**")
+st.sidebar.caption("Created by **Alan Zhang**")
+st.sidebar.caption("Data Source: [U.S. Bureau of Labor Statistics (BLS)](https://www.bls.gov/)")
+st.sidebar.caption(f"small:[Dashboard last updated on {refreshed_date}]")
 
 #filtered data
 df_plot = df.query(("Date >= @start_date and Date <= @end_date")).copy()
@@ -236,6 +240,7 @@ elif st.session_state.page_view == "Work Hours & Pay":
             })
 
         )
+
 
 
 
