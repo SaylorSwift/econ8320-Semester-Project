@@ -6,7 +6,7 @@ import time
 
 #title
 st.set_page_config(layout="wide")
-st.title(":us: U.S. Labor Statistics Dashboard")
+st.title(":us: Labor Statistics Dashboard")
 
 if 'page_view' not in st.session_state:
     st.session_state.page_view = "Employment Statistics"
@@ -34,7 +34,7 @@ st.sidebar.button("💵 Work Hours & Pay", on_click = set_page, args = ("Work Ho
 
 #time slider
 st.sidebar.markdown("---")
-st.sidebar.header("🗓 Timeframe")
+st.sidebar.header("📅 Timeframe")
 
 min_date = df["Date"].min().date()
 max_date = df["Date"].max().date()
@@ -228,6 +228,7 @@ elif st.session_state.page_view == "Work Hours & Pay":
             })
 
         )
+
 
 
 
