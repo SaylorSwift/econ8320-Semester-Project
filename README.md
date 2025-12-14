@@ -1,14 +1,38 @@
-[View Dashboard](https://econ8320-semester-project-ahgzis6ufrb6bf2jebk4mp.streamlit.app/)
+# U.S. Labor Statistics Dashboard 📊
 
-## Original Repository
-This project builds on [the original repository](https://github.com/SaylorSwift/Data_Science/tree/main/ECON%208320%20Tools%20for%20Data%20Analysis)
+A full-stack automated dashboard tracking U.S. employment levels, wage growth, and inflation trends. Built with **Streamlit**, **Plotly**, and **Python**.
 
-Dashboard will check for new data every Monday at 10AM CST
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://econ8320-semester-project-ahgzis6ufrb6bf2jebk4mp.streamlit.app/)
 
-**Last checked: 2025-12-13 02:26 PM CST
+---
 
+## 🚀 Live Demo
+**[Click here to view the interactive dashboard](https://econ8320-semester-project-ahgzis6ufrb6bf2jebk4mp.streamlit.app/)**
+
+## 🔄 Automation Status
+This dashboard runs on a fully automated CI/CD pipeline.
+* **Schedule:** Checks for new BLS data every **Monday at 10:00 AM CST**.
+* **Mechanism:** GitHub Actions fetches the latest data via API and auto-commits changes to the repository.
+
+Last checked: 2025-12-13 02:26 PM CST
+
+---
+
+## 📸 Dashboard Previews
+
+### 1. Employment Statistics
+Tracks total employment levels and unemployment rate changes over time.
 ![Employment Statistics](screenshots/Employment%20Stats.jpeg)
 
+### 2. Wage Growth vs. Inflation
+Compares the cumulative percentage growth of weekly wages against the CPI (Consumer Price Index).
 ![Wage Growth vs Inflation](screenshots/Income%20vs%20Inflation.jpeg)
 
+### 3. Work Hours & Pay
+Analyzes hourly earnings and average weekly hours worked.
 ![Work Hours & Pay](screenshots/Work%20Hours%20%26%20Pay.jpeg)
+
+---
+
+## 🔗 Project Links
+* **Original Repository:** [SaylorSwift/Data_Science](https://github.com/SaylorSwift/Data_Science/tree/main/ECON%208320%20Tools%20for%20Data%20Analysis)
